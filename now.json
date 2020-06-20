@@ -2,11 +2,11 @@
     "version": 2,
     "name": "lupus-diagnosis--backend",
     "builds": [{
-        "src": "build/index.js",
+        "src": "index.ts",
         "use": "@now/node-server"
     }],
     "routes": [{
         "src": "/.*",
-        "dest": "build/index.js"
+        "dest": "index.ts"
     }]
 }
