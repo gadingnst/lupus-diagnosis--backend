@@ -7,6 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "install:build": "yarn; rm -rf build/ && tsc --removeComments",
     "build": "rm -rf build/ && tsc --removeComments",
     "dev": "NODE_PATH=./ nodemon --exec 'ts-node' index.ts",
     "start": "NODE_PATH=./build node build/index.js"
