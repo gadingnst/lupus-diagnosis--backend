@@ -1,11 +1,6 @@
 {
     "version": 2,
     "name": "lupus-diagnosis--backend",
-    "build": {
-        "env": {
-            "NODE_PATH": "./"
-        }
-    },
     "builds": [{
         "src": "index.ts",
         "use": "@now/node-server"
