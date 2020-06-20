@@ -1,0 +1,83 @@
+[
+    {
+        "id": "K1",
+        "disease": "P1",
+        "indications": [
+            "G1",
+            "G3",
+            "G6"
+        ]
+    },
+    {
+        "id": "K2",
+        "disease": "P1",
+        "indications": [
+            "G2",
+            "G4",
+            "G5",
+            "G7"
+        ]
+    },
+    {
+        "id": "K3",
+        "disease": "P1",
+        "indications": [
+            "G1",
+            "G3",
+            "G6"
+        ]
+    },
+    {
+        "id": "K4",
+        "disease": "P2",
+        "indications": [
+            "G2",
+            "G4",
+            "G6"
+        ]
+    },
+    {
+        "id": "K5",
+        "disease": "P2",
+        "indications": [
+            "G3",
+            "G5",
+            "G7"
+        ]
+    },
+    {
+        "id": "K6",
+        "disease": "P2",
+        "indications": [
+            "G1",
+            "G5"
+        ]
+    },
+    {
+        "id": "K7",
+        "disease": "P3",
+        "indications": [
+            "G1",
+            "G2",
+            "G7"
+        ]
+    },
+    {
+        "id": "K8",
+        "disease": "P3",
+        "indications": [
+            "G2",
+            "G4",
+            "G6"
+        ]
+    },
+    {
+        "id": "K9",
+        "disease": "P3",
+        "indications": [
+            "G1",
+            "G3",
+            "G5"
+        ]
+    }
+]
