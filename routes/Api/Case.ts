@@ -1,5 +1,5 @@
-import CaseController from 'app/Controllers/Case'
-import Router from 'routes/Router'
+import CaseController from '../../app/Controllers/Case'
+import Router from '../Router'
 
 class CaseRoute extends Router<typeof CaseController> {
     constructor() {

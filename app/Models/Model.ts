@@ -1,6 +1,6 @@
 import FileSystem from 'fs'
 import CSV from 'csv-parser'
-import { DATASET_PATH } from 'configs'
+import { DATASET_PATH } from '../../configs'
 
 export default abstract class Model<T> {
     private dataset: string

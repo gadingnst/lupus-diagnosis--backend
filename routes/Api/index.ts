@@ -1,4 +1,4 @@
-import Router from 'routes/Router'
+import Router from '../Router'
 import DiseaseRoute from './Disease'
 import IndicationRoute from './Indication'
 import CaseRoute from './Case'

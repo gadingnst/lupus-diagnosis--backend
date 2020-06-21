@@ -1,5 +1,5 @@
-import IndicationController from 'app/Controllers/Indication'
-import Router from 'routes/Router'
+import IndicationController from '../../app/Controllers/Indication'
+import Router from '../Router'
 
 class IndicationRoute extends Router<typeof IndicationController> {
     constructor() {

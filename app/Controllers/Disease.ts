@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
-import Controller from 'app/Controllers/Controller'
-import Disease from 'app/Models/Disease'
+import Controller from './Controller'
+import Disease from '../Models/Disease'
 
 class DiseaseController extends Controller {
     protected model: Disease

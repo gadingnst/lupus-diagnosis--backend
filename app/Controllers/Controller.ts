@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
-import Http, { HttpResponse } from 'app/Helpers/Http'
-import HttpError from 'app/Helpers/HttpError'
+import Http, { HttpResponse } from '../Helpers/Http'
+import HttpError from '../Helpers/HttpError'
 
 export default abstract class Controller<T extends object = object> {
     protected abstract model: T

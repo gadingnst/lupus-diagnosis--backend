@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express'
-import Http from 'app/Helpers/Http'
-import { PUBLIC_PATH } from 'configs'
+import Http from '../app/Helpers/Http'
+import { PUBLIC_PATH } from '../configs'
 import Router from './Router'
 import ApiRoute from './Api'
 

@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
-import Controller from 'app/Controllers/Controller'
-import Indication from 'app/Models/Indication'
+import Controller from './Controller'
+import Indication from '../Models/Indication'
 
 class IndicationController extends Controller {
     protected model: Indication

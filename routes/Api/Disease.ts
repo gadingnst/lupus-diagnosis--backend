@@ -1,5 +1,5 @@
-import DiseaseController from 'app/Controllers/Disease'
-import Router from 'routes/Router'
+import DiseaseController from '../../app/Controllers/Disease'
+import Router from '../Router'
 
 class DiseaseRoute extends Router<typeof DiseaseController> {
     constructor() {
