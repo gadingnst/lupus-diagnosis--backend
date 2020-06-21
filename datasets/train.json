@@ -1,83 +1,133 @@
 [
     {
-        "id": "K1",
+        "id": 1,
         "disease": "P1",
         "indications": [
             "G1",
-            "G3",
-            "G6"
-        ]
-    },
-    {
-        "id": "K2",
-        "disease": "P1",
-        "indications": [
             "G2",
+            "G3",
             "G4",
             "G5",
-            "G7"
+            "G6",
+            "G7",
+            "G8",
+            "G10",
+            "G11",
+            "G12",
+            "G13",
+            "G14",
+            "G17",
+            "G20"
         ]
     },
     {
-        "id": "K3",
+        "id": 2,
         "disease": "P1",
         "indications": [
-            "G1",
-            "G3",
-            "G6"
+            "G5",
+            "G9",
+            "G10",
+            "G13",
+            "G15",
+            "G16",
+            "G19"
         ]
     },
     {
-        "id": "K4",
+        "id": 3,
+        "disease": "P1",
+        "indications": [
+            "G3",
+            "G11",
+            "G12",
+            "G14",
+            "G18"
+        ]
+    },
+    {
+        "id": 4,
         "disease": "P2",
+        "indications": [
+            "G1",
+            "G2",
+            "G3",
+            "G4",
+            "G5",
+            "G8",
+            "G15",
+            "G16",
+            "G17",
+            "G18"
+        ]
+    },
+    {
+        "id": 5,
+        "disease": "P2",
+        "indications": [
+            "G3",
+            "G6",
+            "G7",
+            "G9",
+            "G10",
+            "G12",
+            "G15",
+            "G17",
+            "G18"
+        ]
+    },
+    {
+        "id": 6,
+        "disease": "P2",
+        "indications": [
+            "G6",
+            "G11",
+            "G13",
+            "G14",
+            "G16",
+            "G19",
+            "G20"
+        ]
+    },
+    {
+        "id": 7,
+        "disease": "P3",
+        "indications": [
+            "G1",
+            "G6",
+            "G7",
+            "G8",
+            "G9",
+            "G16",
+            "G18",
+            "G19",
+            "G20"
+        ]
+    },
+    {
+        "id": 8,
+        "disease": "P3",
         "indications": [
             "G2",
-            "G4",
-            "G6"
-        ]
-    },
-    {
-        "id": "K5",
-        "disease": "P2",
-        "indications": [
             "G3",
             "G5",
-            "G7"
+            "G9",
+            "G10",
+            "G13",
+            "G15",
+            "G17",
+            "G20"
         ]
     },
     {
-        "id": "K6",
-        "disease": "P2",
-        "indications": [
-            "G1",
-            "G5"
-        ]
-    },
-    {
-        "id": "K7",
+        "id": 9,
         "disease": "P3",
         "indications": [
-            "G1",
-            "G2",
-            "G7"
-        ]
-    },
-    {
-        "id": "K8",
-        "disease": "P3",
-        "indications": [
-            "G2",
             "G4",
-            "G6"
-        ]
-    },
-    {
-        "id": "K9",
-        "disease": "P3",
-        "indications": [
-            "G1",
-            "G3",
-            "G5"
+            "G7",
+            "G11",
+            "G12",
+            "G14",
+            "G19"
         ]
     }
 ]

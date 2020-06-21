@@ -9,16 +9,18 @@ export default abstract class Model<T> {
 
     constructor(datasetName: string) {
         this.dataset = `${DATASET_PATH}/${datasetName}`
-        this.dataext = datasetName.split('.').slice(-1)[0]
+        this.dataext = datasetName
+            .split('.')
+            .slice(-1)[0]
     }
 
     public all(): Promise<T[]> {
         return this.getData()
     }
 
-    public async findByPk<K>(key: K): Promise<T | boolean> {
+    public async findByPk<K>(key: K): Promise<T | null> {
         const data = await this.all()
-        return data.find(row => (row as any)[this.primaryKey] === key) || false
+        return data.find(row => (row as any)[this.primaryKey] === key) || null
     }
 
     private getData(): Promise<T[]> {

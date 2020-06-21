@@ -1,8 +1,21 @@
 code,name,description
-G1,Arthritis,Arthritis
-G2,Sariawan,Sariawan
-G3,Butterfly Rush,Butterfly Rush
+G1,Demam,Demam
+G2,Nyeri Kepala,Nyeri Kepala
+G3,Kulit Hipersensitif,Kulit Hipersensitif
 G4,Alopesia,Alopesia
-G5,Sering mengalami Kejang,Sering mengalami Kejang
-G6,Mual dan Muntah,Mual dan Muntah
-G7,Turun nafsu Makan,Turun nafsu Makan
+G5,Plumeritis,Plumeritis
+G6,Anemia,Anemia
+G7,Jari Kaki/Tangan Pucat Saat Dingin,Jari Kaki/Tangan Pucat Saat Dingin
+G8,Sariawan,Sariawan
+G9,Turun Berat Badan,Turun Berat Badan
+G10,Kejang,Mengalami Kejang
+G11,Gangguan Penglihatan
+G12,Hemisturia,Hemisturia
+G13,Arimitis,Arimitis
+G14,Butterfly Rush,Butterfly Rush
+G15,Kulit Sinar Matahari,Kulit Sinar Matahari
+G16,Lemah dan Letih,Lemah dan Letih
+G17,Bagian tubuh terdapat merah,Bagian tubuh terdapat merah
+G18,Discoid Rash,Discoid Rash
+G19,Mual dan Muntah,Mual dan Muntah
+G20,Menurun Nafsu Makan
