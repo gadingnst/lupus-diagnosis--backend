@@ -7,7 +7,7 @@ class CaseRoute extends Router<typeof CaseController> {
     }
 
     public routes() {
-        this.router.post('/', this.bindHandler(CaseController.post))
+        this.router.get('/predict', this.bindHandler(CaseController.predict))
     }
 }
 

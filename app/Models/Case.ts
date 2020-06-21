@@ -28,9 +28,7 @@ export interface IndicationSample {
 }
 
 export interface Classification {
-    disease: string
-    sample: number
-    indication: IndicationSample
+    [disease: string]: IndicationSample
 }
 
 export default class Case extends Model<CaseFields> {
@@ -52,55 +50,46 @@ export default class Case extends Model<CaseFields> {
             this.indication.all()
         ])
 
-        const priors = this.getProbability(cases, diseases)
-        const classification = this.classify('P1', cases, indications);
+        const classification = this.classify(diseases, cases, indications);
+        return classification
     }
 
     public async filterByDisease(disease: string): Promise<CaseFields[]> {
         const data = await this.all()
-        return data.filter((train: CaseFields) => train.disease === disease.toUpperCase().trim())
+        return data.filter(
+            (train: CaseFields) => train.disease === disease.toUpperCase().trim()
+        )
     }
 
-    private classify(code: string, cases: CaseFields[], indications: IndicationFields[]): any {
-        /**
-         * example:
-         * {
-         *      disease: P1
-         *      sample: 3
-         *      indications: {
-         *          G1: {
-         *              positive: 0,
-         *              negative: 0
-         *          }
-         *      }
-         * }
-        */
-        return cases.reduce((accumulator, current) => {
-            if (code === current.disease) {
-                accumulator.sample++
-                const indication = indications.reduce((acc, cur) => {
-                    const positive = current.indications.some(indic => indic === cur.code)
-                    const accPositive = acc[cur.code]?.positive || 0
-                    const accNegative = acc[cur.code]?.negative || 0
-                    acc[cur.code] = {
-                        positive: positive ? accPositive + 1 : accPositive,
-                        negative: !positive ? accNegative + 1 : accNegative
-                    }
-                    return acc
-                }, {} as IndicationSample)
-
-                console.log(indication)
-            }
-            return accumulator
-        }, { disease: code, sample: 0, indication: {} } as Classification)
-    }
-
-    private getProbability(cases: CaseFields[], diseases: DiseaseFields[]): Probability {
-        return diseases.reduce((acc, cur) => {
-            const sample = diseases.length
-            acc.totalCase = cases.length
-            acc.prior[cur.code] = { sample, amount: sample / acc.totalCase }
-            return acc
-        }, { totalCase: 0, prior: {} } as Probability)
+    /**
+     * example result:
+     * P1: {
+     *  G1: {
+     *    positive: 0.6
+     *    negative: 0.3
+     *  },
+     *  ...
+     * }
+    */
+    private classify(diseases: DiseaseFields[], cases: CaseFields[], indications: IndicationFields[]): any {
+        return diseases.reduce((dAcc, dCur) => {
+            const caseResult = cases.filter(({ disease }) => disease === dCur.code)
+            const samplePerDisease = caseResult.length
+            const indicationResult: IndicationSample = indications.reduce((iAcc, iCur) => {
+                const totalFeature = caseResult.reduce((cAcc, cCur) => {
+                    if (cCur.indications.includes(iCur.code)) cAcc.positive++
+                    else cAcc.negative++
+                    return cAcc
+                }, { positive: 0, negative: 0 })
+                const positive = totalFeature.positive / samplePerDisease
+                const negative = totalFeature.negative / samplePerDisease
+                return {
+                    ...iAcc,
+                    [iCur.code]: { positive, negative }
+                }
+            }, {} as IndicationSample)
+            dAcc[dCur.code] = indicationResult
+            return dAcc
+        }, {} as Classification)
     }
 }

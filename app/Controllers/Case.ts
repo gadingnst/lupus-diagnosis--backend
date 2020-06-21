@@ -10,14 +10,16 @@ class CaseController extends Controller {
         this.model = new Case()
     }
 
-    public async post(req: Request, res: Response): Promise<void> {
-        const { indications } = req.body
+    public async predict(req: Request, res: Response): Promise<void> {
+        const { indications = '' } = req.query
         try {
-            const disease = this.model.predict(indications)
+            if (!indications) this.setError(400, 'Bad Request', 'Harus mengirimkan parameter gejala untuk memprediksi penyakit.')
+            const data = await this.model.predict(indications.split(','))
             this.send(res, {
                 code: 200,
                 status: 'OK!',
-                message: `Sukses`
+                message: `Sukses`,
+                data
             })
         } catch (err) {
             this.handleError(req, res, err)
