@@ -8,27 +8,33 @@ export interface CaseFields {
     indications: string[]
 }
 
-export interface Prior {
-    [code: string]: {
-        sample: number
-        amount: number
-    }
+export interface IndicationSample {
+    code: string
+    positive: number
+    negative: number
 }
 
 export interface Probability {
-    totalCase: number
-    prior: Prior
-}
-
-export interface IndicationSample {
-    [indication: string]: {
-        positive: number
-        negative: number
-    }
+    code: string
+    value: number
 }
 
 export interface Classification {
-    [disease: string]: IndicationSample
+    disease: string
+    posterior: number
+}
+
+export interface ClassifyParams {
+    diseases: DiseaseFields[]
+    cases: CaseFields[]
+    indications: IndicationFields[]
+}
+
+export interface PosteriorParams {
+    indications: IndicationFields[]
+    filteredCases: CaseFields[]
+    sample: number
+    prior: number
 }
 
 export default class Case extends Model<CaseFields> {
@@ -50,8 +56,10 @@ export default class Case extends Model<CaseFields> {
             this.indication.all()
         ])
 
-        const classification = this.classify(diseases, cases, indications);
-        return classification
+        const classification = this.classify(input, { cases, diseases, indications })
+        const maxPosterior = Math.max(...classification.map(({ posterior }) => posterior))
+        console.log({ maxPosterior })
+        return { classification }
     }
 
     public async filterByDisease(disease: string): Promise<CaseFields[]> {
@@ -61,35 +69,43 @@ export default class Case extends Model<CaseFields> {
         )
     }
 
-    /**
-     * example result:
-     * P1: {
-     *  G1: {
-     *    positive: 0.6
-     *    negative: 0.3
-     *  },
-     *  ...
-     * }
-    */
-    private classify(diseases: DiseaseFields[], cases: CaseFields[], indications: IndicationFields[]): any {
-        return diseases.reduce((dAcc, dCur) => {
-            const caseResult = cases.filter(({ disease }) => disease === dCur.code)
-            const samplePerDisease = caseResult.length
-            const indicationResult: IndicationSample = indications.reduce((iAcc, iCur) => {
-                const totalFeature = caseResult.reduce((cAcc, cCur) => {
-                    if (cCur.indications.includes(iCur.code)) cAcc.positive++
-                    else cAcc.negative++
-                    return cAcc
-                }, { positive: 0, negative: 0 })
-                const positive = totalFeature.positive / samplePerDisease
-                const negative = totalFeature.negative / samplePerDisease
-                return {
-                    ...iAcc,
-                    [iCur.code]: { positive, negative }
-                }
-            }, {} as IndicationSample)
-            dAcc[dCur.code] = indicationResult
-            return dAcc
-        }, {} as Classification)
+    private classify(input: string[], { diseases, cases, indications }: ClassifyParams): Classification[] {
+        const totalTrainCase = cases.length
+        return diseases.reduce((acc, { code }) => {
+            const filteredCases = cases.filter(({ disease }) => disease === code)
+            const sample = filteredCases.length
+            const prior = sample / totalTrainCase
+            const posterior = this.getPosterior(input, { indications, prior, sample, filteredCases })
+            acc.push({ disease: code, posterior })
+            return acc
+        }, [] as Classification[])
+    }
+
+    private getPosterior(input: string[], params: PosteriorParams): number {
+        const { filteredCases, indications, prior, sample } = params
+        return indications.reduce((acc, { code }) => {
+            const { positive, negative } = this.featuring(filteredCases, code, sample)
+            const { value: likelihood } = this.getProbability({ code, positive, negative }, input)
+            acc *= likelihood * prior
+            return acc
+        }, 1)
+    }
+
+    private featuring(filteredCases: CaseFields[], indicationCode: string, sample: number) {
+        const totalFeature = filteredCases.reduce((acc, { indications }) => {
+            if (indications.includes(indicationCode)) acc.positive++
+            else acc.negative++
+            return acc
+        }, { positive: 0, negative: 0 })
+        return {
+            positive: totalFeature.positive / sample,
+            negative: totalFeature.negative / sample
+        }
+    }
+
+    private getProbability({ code, positive, negative }: IndicationSample, input: string[]): Probability {
+        return input.some(indication => code === indication)
+            ? { code, value: positive }
+            : { code, value: negative }
     }
 }
