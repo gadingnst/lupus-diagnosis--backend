@@ -83,12 +83,13 @@ export default class Case extends Model<CaseFields> {
 
     private getPosterior(input: string[], params: PosteriorParams): number {
         const { filteredCases, indications, prior, sample } = params
-        return indications.reduce((acc, { code }) => {
+        const likelihood = indications.reduce((acc, { code }) => {
             const { positive, negative } = this.featuring(filteredCases, code, sample)
-            const { value: likelihood } = this.getProbability({ code, positive, negative }, input)
-            acc *= likelihood * prior
+            const { value } = this.getProbability({ code, positive, negative }, input)
+            acc *= value
             return acc
         }, 1)
+        return likelihood * prior
     }
 
     private featuring(filteredCases: CaseFields[], indicationCode: string, sample: number) {
