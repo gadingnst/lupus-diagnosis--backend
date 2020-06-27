@@ -1,7 +1,7 @@
 {
   "name": "lupus-disease-diagnosis",
   "version": "1.0.0",
-  "description": "Sistem Pakar untuk mendiagnosa penyakit Lupus menggunakan metode Machine Learning Naive Bayes.",
+  "description": "Sistem Pakar untuk mendiagnosa penyakit Lupus menggunakan metode Naive Bayes.",
   "main": "index.ts",
   "author": "Sutan Nasution <sutan.gnst@gmail.com>.",
   "license": "MIT",

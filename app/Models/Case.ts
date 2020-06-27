@@ -19,11 +19,6 @@ export interface Probability {
     value: number
 }
 
-export interface Classification {
-    disease: string
-    posterior: number
-}
-
 export interface ClassifyParams {
     diseases: DiseaseFields[]
     cases: CaseFields[]
@@ -37,6 +32,16 @@ export interface PosteriorParams {
     prior: number
 }
 
+export interface Prediction {
+    prediction: Classification
+    classification: Classification[]
+}
+
+export interface Classification extends DiseaseFields {
+    posterior: number
+    percentage?: string
+}
+
 export default class Case extends Model<CaseFields> {
     protected primaryKey = 'id'
     private disease: Disease
@@ -48,55 +53,65 @@ export default class Case extends Model<CaseFields> {
         this.indication = new Indication()
     }
 
-    public async predict(input: string[]): Promise<any> {
+    public async predict(input: string[]): Promise<Prediction> {
         input = input.map(indication => indication.toUpperCase().trim())
         const [cases, diseases, indications] = await Promise.all([
             this.all(),
             this.disease.all(),
             this.indication.all()
         ])
-
+        let prediction: Classification = {} as any
         const classification = this.classify(input, { cases, diseases, indications })
         const maxPosterior = Math.max(...classification.map(({ posterior }) => posterior))
-        console.log({ maxPosterior })
-        return { classification }
-    }
-
-    public async filterByDisease(disease: string): Promise<CaseFields[]> {
-        const data = await this.all()
-        return data.filter(
-            (train: CaseFields) => train.disease === disease.toUpperCase().trim()
-        )
+        const totalPosterior = classification.reduce((accumulator, current) => {
+            const { posterior } = current
+            if (maxPosterior === posterior) prediction = current 
+            return accumulator + posterior
+        }, 0)
+        return {
+            prediction: {
+                ...prediction,
+                percentage: this.getPercentage(prediction?.posterior, totalPosterior)
+            },
+            classification: classification.map(data => ({
+                ...data,
+                percentage: this.getPercentage(data.posterior, totalPosterior)
+            }))
+        }
     }
 
     private classify(input: string[], { diseases, cases, indications }: ClassifyParams): Classification[] {
         const totalTrainCase = cases.length
-        return diseases.reduce((acc, { code }) => {
-            const filteredCases = cases.filter(({ disease }) => disease === code)
+        return diseases.reduce((accumulator, current) => {
+            const filteredCases = cases.filter(({ disease }) => disease === current.code)
             const sample = filteredCases.length
             const prior = sample / totalTrainCase
             const posterior = this.getPosterior(input, { indications, prior, sample, filteredCases })
-            acc.push({ disease: code, posterior })
-            return acc
+            return [...accumulator, { ...current, posterior }]
         }, [] as Classification[])
     }
 
     private getPosterior(input: string[], params: PosteriorParams): number {
         const { filteredCases, indications, prior, sample } = params
-        const likelihood = indications.reduce((acc, { code }) => {
+        const likelihood = indications.reduce((accumulator, { code }) => {
             const { positive, negative } = this.featuring(filteredCases, code, sample)
-            const { value } = this.getProbability({ code, positive, negative }, input)
-            acc *= value
-            return acc
+            const { value } = this.getProbability(input, { code, positive, negative })
+            return accumulator * value
         }, 1)
         return likelihood * prior
     }
 
+    private getProbability(input: string[], { code, positive, negative }: IndicationSample): Probability {
+        return input.some(indication => code === indication)
+            ? { code, value: positive }
+            : { code, value: negative }
+    }
+
     private featuring(filteredCases: CaseFields[], indicationCode: string, sample: number) {
-        const totalFeature = filteredCases.reduce((acc, { indications }) => {
-            if (indications.includes(indicationCode)) acc.positive++
-            else acc.negative++
-            return acc
+        const totalFeature = filteredCases.reduce((accumulator, { indications }) => {
+            if (indications.includes(indicationCode)) accumulator.positive++
+            else accumulator.negative++
+            return accumulator
         }, { positive: 0, negative: 0 })
         return {
             positive: totalFeature.positive / sample,
@@ -104,9 +119,15 @@ export default class Case extends Model<CaseFields> {
         }
     }
 
-    private getProbability({ code, positive, negative }: IndicationSample, input: string[]): Probability {
-        return input.some(indication => code === indication)
-            ? { code, value: positive }
-            : { code, value: negative }
+    private getPercentage(number: number | undefined = 0, total: number): string {
+        const percent = (number / total) * 100
+        return percent.toFixed(2) + '%'
+    }
+
+    public async filterByDisease(disease: string): Promise<CaseFields[]> {
+        const data = await this.all()
+        return data.filter(
+            (train: CaseFields) => train.disease === disease.toUpperCase().trim()
+        )
     }
 }

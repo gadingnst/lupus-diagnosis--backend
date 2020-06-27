@@ -1,4 +1,5 @@
 code,name,idName
+P0,Tidak Ada Penyakit,Tidak ada Penyakit
 P1,Systemic Lupus Erythematosus (SLE),Lupus Sistemik
 P2,Cutaneous Lupus Erythematosus (CLE),Lupus Discoid
 P3,Drug-Induced Lupus Erythematosus (DILE),Lupus Obat
