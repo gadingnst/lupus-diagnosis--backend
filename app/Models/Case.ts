@@ -39,11 +39,13 @@ export interface Prediction {
 
 export interface Classification extends DiseaseFields {
     posterior: number
-    percentage?: string
+    percentage?: number
 }
 
 export default class Case extends Model<CaseFields> {
     protected primaryKey = 'id'
+    protected prefixKey = ''
+    protected uniqueKey = []
     private disease: Disease
     private indication: Indication
 
@@ -119,9 +121,9 @@ export default class Case extends Model<CaseFields> {
         }
     }
 
-    private getPercentage(number: number | undefined = 0, total: number): string {
+    private getPercentage(number: number | undefined = 0, total: number): number {
         const percent = (number / total) * 100
-        return percent.toFixed(2) + '%'
+        return parseFloat(percent.toFixed(2))
     }
 
     public async filterByDisease(disease: string): Promise<CaseFields[]> {
