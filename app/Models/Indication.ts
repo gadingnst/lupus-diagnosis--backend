@@ -1,13 +1,13 @@
 import Model from './Model'
 
 export interface IndicationFields {
-    code: string
-    name: string
-    description: string
+    kode_gejala?: string
+    gejala: string
+    des_gejala: string
 }
 
 export default class Indication extends Model<IndicationFields> {
-    protected primaryKey = 'code'
+    protected primaryKey = 'kode_gejala'
     protected prefixKey = 'G'
     protected uniqueKey = []
 

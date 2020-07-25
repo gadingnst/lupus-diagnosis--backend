@@ -3,7 +3,7 @@ import Disease, { DiseaseFields } from './Disease'
 import Indication, { IndicationFields } from './Indication'
 
 export interface CaseFields {
-    id: string
+    id?: string
     disease: string
     indications: string[]
 }
@@ -85,7 +85,7 @@ export default class Case extends Model<CaseFields> {
     private classify(input: string[], { diseases, cases, indications }: ClassifyParams): Classification[] {
         const totalTrainCase = cases.length
         return diseases.reduce((accumulator, current) => {
-            const filteredCases = cases.filter(({ disease }) => disease === current.code)
+            const filteredCases = cases.filter(({ disease }) => disease === current.kode_penyakit)
             const sample = filteredCases.length
             const prior = sample / totalTrainCase
             const posterior = this.getPosterior(input, { indications, prior, sample, filteredCases })
@@ -95,9 +95,13 @@ export default class Case extends Model<CaseFields> {
 
     private getPosterior(input: string[], params: PosteriorParams): number {
         const { filteredCases, indications, prior, sample } = params
-        const likelihood = indications.reduce((accumulator, { code }) => {
-            const { positive, negative } = this.featuring(filteredCases, code, sample)
-            const { value } = this.getProbability(input, { code, positive, negative })
+        const likelihood = indications.reduce((accumulator, { kode_gejala: code }) => {
+            const { positive, negative } = this.featuring(filteredCases, code as string, sample)
+            const { value } = this.getProbability(input, {
+                code: code as string,
+                positive,
+                negative
+            })
             return accumulator * value
         }, 1)
         return likelihood * prior

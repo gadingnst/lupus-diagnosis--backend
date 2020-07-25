@@ -1,6 +1,5 @@
 import { Request, Response } from 'express'
 import Http, { HttpResponse } from '../Helpers/Http'
-import HttpError from '../Helpers/HttpError'
 
 export default abstract class Controller<T extends object = object> {
     protected abstract model: T
@@ -10,10 +9,10 @@ export default abstract class Controller<T extends object = object> {
     }
 
     protected setError(code: number, status: string, msg: string): void {
-        throw new HttpError(code, status, msg)
+        return Http.setError(code, status, msg)
     }
 
     protected handleError(req: Request, res: Response, error: Error): Response {
-        return HttpError.handle(req, res, error)
+        return Http.handleError(req, res, error)
     }
 }

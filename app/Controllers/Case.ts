@@ -17,7 +17,7 @@ class CaseController extends Controller {
             this.send(res, {
                 code: 200,
                 status: 'OK!',
-                message: `Sukses`,
+                message: 'Sukses memprediksi penyakit.',
                 data
             })
         } catch (err) {

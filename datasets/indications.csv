@@ -1,4 +1,4 @@
-code,name,description
+kode_gejala,gejala,des_gejala
 G1,Demam,Demam
 G2,Nyeri Kepala,Nyeri Kepala
 G3,Kulit Hipersensitif,Kulit Hipersensitif
@@ -18,4 +18,4 @@ G16,Lemah dan Letih,Lemah dan Letih
 G17,Bagian tubuh terdapat merah,Bagian tubuh terdapat merah
 G18,Discoid Rash,Discoid Rash
 G19,Mual dan Muntah,Mual dan Muntah
-G20,Menurun Nafsu Makan,Gangguan Penglihatan
+G20,Menurun Nafsu Makan,Menurun Nafsu Makan

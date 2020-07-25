@@ -1,4 +1,4 @@
-code,name,idName
+kode_penyakit,nama_penyakit,des_penyakit
 P0,Tidak Ada Penyakit,Tidak ada Penyakit
 P1,Systemic Lupus Erythematosus (SLE),Lupus Sistemik
 P2,Cutaneous Lupus Erythematosus (CLE),Lupus Discoid

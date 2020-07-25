@@ -3,6 +3,10 @@ declare global {
         interface Global {
             __basedir: string
         }
+
+        interface ProcessEnv {
+            SECRET_KEY: string;
+        }
     }
 }
 
