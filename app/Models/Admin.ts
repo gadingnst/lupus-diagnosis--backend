@@ -1,4 +1,4 @@
-import Model from './Model'
+import Model from './FSModel'
 
 export interface AdminFields {
     id_admin?: string

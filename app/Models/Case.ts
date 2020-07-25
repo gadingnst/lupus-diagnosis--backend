@@ -1,4 +1,4 @@
-import Model from './Model'
+import Model from './FSModel'
 import Disease, { DiseaseFields } from './Disease'
 import Indication, { IndicationFields } from './Indication'
 
