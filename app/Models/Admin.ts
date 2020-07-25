@@ -10,7 +10,7 @@ export interface AdminFields {
 export default class User extends Model<AdminFields> {
     protected primaryKey = 'id_admin'
     protected prefixKey = ''
-    protected uniqueKey = ['username']
+    protected uniqueKey = ['username', 'email']
 
     constructor() {
         super('admins.csv')

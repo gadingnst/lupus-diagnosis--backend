@@ -50,7 +50,8 @@ class AdminController extends Controller {
     }
 
     public async info(req: Request, res: Response) {
-      const { data } = res.locals
+      const data: AdminFields = res.locals.data
+      delete data.password
       this.send(res, {
         code: 200,
         status: 'OK!',

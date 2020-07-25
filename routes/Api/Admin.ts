@@ -8,6 +8,7 @@ class AdminRoute extends Router<typeof AdminController> {
     }
 
     public routes() {
+        this.router.post('/login', this.bindHandler(AdminController.login))
         this.router.post('/register', attempt, this.bindHandler(AdminController.register))
         this.router.get('/info', attempt, this.bindHandler(AdminController.info))
     }
