@@ -2,7 +2,7 @@ import FileSystem from 'fs'
 import * as CSV from 'fast-csv'
 import { json2csvAsync } from 'json-2-csv'
 import { DATASET_PATH } from '../../configs'
-import { HttpError } from 'app/Helpers'
+import { HttpError } from '../Helpers'
 
 export default abstract class Model<T> {
     private allData: T[]

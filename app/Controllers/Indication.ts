@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import Controller from './Controller'
 import Indication, { IndicationFields } from '../Models/Indication'
-import { cleanObject } from 'app/Helpers'
+import { cleanObject } from '../Helpers'
 
 class IndicationController extends Controller {
     protected model: Indication

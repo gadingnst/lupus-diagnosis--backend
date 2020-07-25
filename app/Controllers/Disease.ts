@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import Controller from './Controller'
 import Disease, { DiseaseFields } from '../Models/Disease'
-import { cleanObject } from 'app/Helpers'
+import { cleanObject } from '../Helpers'
 
 class DiseaseController extends Controller {
     protected model: Disease
