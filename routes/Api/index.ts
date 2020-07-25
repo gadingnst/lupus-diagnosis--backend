@@ -3,6 +3,7 @@ import DiseaseRoute from './Disease'
 import IndicationRoute from './Indication'
 import CaseRoute from './Case'
 import AdminRoute from './Admin'
+import VisitorRoute from './Visitor'
 
 class ApiRoute extends Router {
     public routes() {
@@ -10,6 +11,7 @@ class ApiRoute extends Router {
         this.router.use('/indications', IndicationRoute)
         this.router.use('/cases', CaseRoute)
         this.router.use('/admins', AdminRoute)
+        this.router.use('/visitors', VisitorRoute)
     }
 }
 
