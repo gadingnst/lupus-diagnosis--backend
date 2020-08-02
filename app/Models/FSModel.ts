@@ -160,7 +160,7 @@ export default abstract class Model<T> {
     }
 
     public async update(data: Partial<T>): Promise<T | null> {
-        const idx = this.allData.findIndex(data => (data as any)[this.primaryKey] == (this.data as any)[this.primaryKey]) || -1
+        const idx = this.allData.findIndex(data => (data as any)[this.primaryKey] == (this.data as any)[this.primaryKey]) || 0
         this.data = { ...this.data, ...data } as T
         this.allData[idx] = this.data as T
         return new Promise((resolve, reject) => {

@@ -18,6 +18,7 @@ class AdminController extends Controller {
         const user: AdminFields = { username, email, password }
         try {
           const data = await this.model.insert(user)
+          delete data?.password
           this.send(res, {
             code: 201,
             status: 'Created.',
