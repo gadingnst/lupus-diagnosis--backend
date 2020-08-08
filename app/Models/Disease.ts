@@ -4,6 +4,7 @@ export interface DiseaseFields {
     kode_penyakit?: string
     nama_penyakit: string
     des_penyakit: string
+    gambar_penyakit?: string
 }
 
 export default class Disease extends Model<DiseaseFields> {
