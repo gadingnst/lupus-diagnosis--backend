@@ -1,21 +1,21 @@
 kode_gejala,gejala,des_gejala
-G1,Demam,Demam
-G2,Nyeri Kepala,Nyeri Kepala
-G3,Kulit Hipersensitif,Kulit Hipersensitif
-G4,Alopesia,Alopesia
-G5,Plumeritis,Plumeritis
-G6,Anemia,Anemia
-G7,Jari Kaki/Tangan Pucat Saat Dingin,Jari Kaki/Tangan Pucat Saat Dingin
-G8,Sariawan,Sariawan
-G9,Turun Berat Badan,Turun Berat Badan
-G10,Kejang,Mengalami Kejang
-G11,Gangguan Penglihatan,Gangguan Penglihatan
-G12,Hemisturia,Hemisturia
-G13,Arimitis,Arimitis
-G14,Butterfly Rush,Butterfly Rush
-G15,Kulit Sinar Matahari,Kulit Sinar Matahari
-G16,Lemah dan Letih,Lemah dan Letih
-G17,Bagian tubuh terdapat merah,Bagian tubuh terdapat merah
-G18,Discoid Rash,Discoid Rash
-G19,Mual dan Muntah,Mual dan Muntah
-G20,Menurun Nafsu Makan,Menurun Nafsu Makan
+G1,Demam,mengalami demam diatas 38 derajat celcius tanpa sebab yang jelas & terjadi secara berulang
+G2,Nyeri Kepala,sering mengalami nyeri kepala sebelah yang menyerupai migren
+G3,Kulit Hipersensitif,Kulit menjadi hipersensitif terhadap matahari
+G4,Alopesia,mengalami kebotakan pada rambut yang sulit tumbuh
+G5,Plueritis,sering mengalami nyeri dada saat menarik nafas yang panjang selama beberapa hari
+G6,Anemia,mengalami anemia atau kurang darah
+G7,Jari Kaki/Tangan Pucat Saat Dingin,mengalami jari tangan atau jari kaki yang tampak pucat atau tidak nyaman pada saat dingin
+G8,Sariawan,mengalami sariawan kurang lebih 2 minggu atau lebih sampai mulut saraf parah
+G9,Turun Berat Badan,berat badan turun drastis kurang lebih 10kg dalam 2 minggu
+G10,Kejang,sering sekali mengalami kejang
+G11,Gangguan Penglihatan,tiba-tiba mata menjadi perih dan sakit waktu melihat
+G12,Hematuria,mengalami air kemih yang mengandung darah
+G13,Arimitis,mengalami sakit, nyeri, dan bengkak pada persendian selama lebih dari 3 bulan
+G14,Butterfly Rush,adanya ruam kemerahan berbentuk kupu-kupu bersayap meliputi kedua pipi
+G15,Ruam kulit diperburuk sinar matahari,mengalami ruam pada kulit yang diperburuk oleh sinar matahari
+G16,Lemah dan Lelah,merasa sangat lemah dan cepat lelah meskipun telah cukup istirahat
+G17,Bagian tubuh terdapat bercak merah cakram & sisik,dibagian tubuh terdapat bercak-bercak merah berbentuk cakram dan terkadang bersisik
+G18,Discoid Rash,adanya ruam rash pada wajah yang berbentuk bulat pada pipi
+G19,Mual dan Muntah,mengalam rasa mual dan muntah kurang lebih 2 minggu
+G20,Menurun Nafsu Makan,mengalami penurunan nafsu makan
