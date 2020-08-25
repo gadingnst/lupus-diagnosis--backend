@@ -1,0 +1,43 @@
+{
+  "name": "lupus-disease-diagnosis",
+  "version": "1.0.0",
+  "description": "Sistem Pakar untuk mendiagnosa penyakit Lupus menggunakan metode Naive Bayes.",
+  "main": "index.ts",
+  "author": "Sutan Nasution <sutan.gnst@gmail.com>.",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "install:build": "yarn; rm -rf build/ && tsc --removeComments",
+    "build": "rm -rf build/ && tsc --removeComments",
+    "dev": "nodemon --exec 'ts-node' index.ts",
+    "start": "node build/index.js"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/bluebird": "^3.5.32",
+    "@types/compression": "1.0.1",
+    "@types/cors": "2.8.6",
+    "@types/express": "4.17.2",
+    "@types/helmet": "0.0.45",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/morgan": "1.7.37",
+    "@types/node": "^14.0.20",
+    "@types/validator": "^13.1.0",
+    "nodemon": "2.0.2",
+    "ts-node": "8.5.4",
+    "typescript": "3.7.4"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "compression": "1.7.4",
+    "cors": "2.8.5",
+    "dotenv": "8.2.0",
+    "express": "4.17.1",
+    "fast-csv": "^4.3.1",
+    "helmet": "3.21.2",
+    "json-2-csv": "^3.7.6",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "1.9.1",
+    "sequelize": "^6.3.1"
+  }
+}

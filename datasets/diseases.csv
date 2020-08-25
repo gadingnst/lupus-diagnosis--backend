@@ -1,0 +1,5 @@
+kode_penyakit,nama_penyakit,des_penyakit,gambar_penyakit
+P1,Systemic Lupus Erythematosus (SLE),Lupus Sistemik,/images/diseases/p1.png
+P2,Cutaneous Lupus Erythematosus (CLE),Lupus Discoid,/images/diseases/p2.png
+P3,Drug-Induced Lupus Erythematosus (DILE),Lupus Obat,/images/diseases/p3.png
+P4,Tidak Ada Penyakit,Tidak ada Penyakit,/images/diseases/p4.png
