@@ -11,9 +11,14 @@ class CaseController extends Controller {
     }
 
     public async predict(req: Request, res: Response): Promise<void> {
+        // indications adalah variable yang mengumpulkan kode gejala
         const { indications = '' } = req.query
         try {
+            // Memanggil fungsi predict di file model (/app/Models/Case.ts)
+            // dengan mempassing parametter kode gejala tadi yang diubah menjadi array.
             const data = await this.model.predict((<string>indications).split(','))
+            
+            // mengirim data ke client
             this.send(res, {
                 code: 200,
                 status: 'OK!',
