@@ -7,6 +7,7 @@ class VisitorRoute extends Router<typeof VisitorController> {
   }
 
   public routes() {
+    this.router.get('/', this.bindHandler(VisitorController.index))
     this.router.post('/', this.bindHandler(VisitorController.add))
   }
 }

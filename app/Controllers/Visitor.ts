@@ -10,9 +10,23 @@ class VisitorController extends Controller {
     this.model = new Visitor()
   }
 
+  public async index(req: Request, res: Response): Promise<void> {
+    try {
+      const data = await this.model.all()
+      this.send(res, {
+        code: 200,
+        status: 'OK!',
+        message: `Sukses mengambil ${data.length} data pengunjung.`,
+        data
+      })
+    } catch (err) {
+      this.handleError(req, res, err)
+    }
+  }
+
   public async add(req: Request, res: Response): Promise<void> {
-    const { nama_pengunjung } = req.body
-    const visitor: VisitorFields = { nama_pengunjung }
+    const { umur, pekerjaan, jenis_kelamin } = req.body
+    const visitor: VisitorFields = { umur, pekerjaan, jenis_kelamin }
     try {
       const data = await this.model.insert(visitor)
       this.send(res, {

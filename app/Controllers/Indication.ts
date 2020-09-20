@@ -27,8 +27,8 @@ class IndicationController extends Controller {
     }
 
     public async add(req: Request, res: Response) {
-        const { gejala, des_gejala } = req.body
-        const indication: IndicationFields = { gejala, des_gejala }
+        const { gejala, des_gejala, gambar_gejala = '' } = req.body
+        const indication: IndicationFields = { gejala, des_gejala, gambar_gejala }
         try {
           const data = await this.model.insert(indication)
           this.send(res, {

@@ -1,3 +1,2 @@
-id_pengunjung,nama_pengunjung
-1,Aris2
-2,1
+id_pengunjung,umur,jenis_kelamin,pekerjaan
+1,21,L,Programmer

@@ -1,21 +1,21 @@
-kode_gejala,gejala,des_gejala
-G1,Demam,mengalami demam diatas 38 derajat celcius tanpa sebab yang jelas & terjadi secara berulang
-G2,Nyeri Kepala,sering mengalami nyeri kepala sebelah yang menyerupai migren
-G3,Photosensitivity,Kulit menjadi hipersensitif terhadap matahari
-G4,Alopesia,mengalami kebotakan pada rambut yang sulit tumbuh
-G5,Plueritis,sering mengalami nyeri dada saat menarik nafas yang panjang selama beberapa hari
-G6,Anemia,mengalami anemia atau kurang darah
-G7,Jari Kaki/Tangan Pucat Saat Dingin,mengalami jari tangan atau jari kaki yang tampak pucat atau tidak nyaman pada saat dingin
-G8,Sariawan,mengalami sariawan kurang lebih 2 minggu atau lebih sampai mulut saraf parah
-G9,Turun Berat Badan,berat badan turun drastis kurang lebih 10kg dalam 2 minggu
-G10,Kejang,sering sekali mengalami kejang
-G11,Gangguan Penglihatan,tiba-tiba mata menjadi perih dan sakit waktu melihat
-G12,Mual dan Muntah,mengalam rasa mual dan muntah kurang lebih 2 minggu
-G13,Lemah dan Lelah,merasa sangat lemah dan cepat lelah meskipun telah cukup istirahat
-G14,Menurun Nafsu Makan,mengalami penurunan nafsu makan
-G15,Hematuria,mengalami air kemih yang mengandung darah
-G16,Arthritis,"mengalami sakit, nyeri, dan bengkak pada persendian selama lebih dari 3 bulan"
-G17,Ruam kulit diperburuk sinar matahari,mengalami ruam pada kulit yang diperburuk oleh sinar matahari
-G18,Bagian tubuh terdapat bercak merah cakram & sisik,dibagian tubuh terdapat bercak-bercak merah berbentuk cakram dan terkadang bersisik
-G19,Butterfly Rush,adanya ruam kemerahan berbentuk kupu-kupu bersayap meliputi kedua pipi
-G20,Discoid Rash,adanya ruam rash pada wajah yang berbentuk bulat pada pipi
+kode_gejala,gejala,des_gejala,gambar_gejala
+G1,Demam,mengalami demam diatas 38 derajat celcius tanpa sebab yang jelas & terjadi secara berulang,/images/indications/g1.jpg
+G2,Nyeri Kepala,sering mengalami nyeri kepala sebelah yang menyerupai migren,/images/indications/g2.jpg
+G3,Photosensitivity,Kulit menjadi hipersensitif terhadap matahari,/images/indications/g3.jpg
+G4,Alopesia,mengalami kebotakan pada rambut yang sulit tumbuh,/images/indications/g4.jpg
+G5,Plueritis,sering mengalami nyeri dada saat menarik nafas yang panjang selama beberapa hari,/images/indications/g5.jpg
+G6,Anemia,mengalami anemia atau kurang darah,/images/indications/g6.jpg
+G7,Jari Kaki/Tangan Pucat Saat Dingin,mengalami jari tangan atau jari kaki yang tampak pucat atau tidak nyaman pada saat dingin,/images/indications/g7.jpg
+G8,Sariawan,mengalami sariawan kurang lebih 2 minggu atau lebih sampai mulut saraf parah,/images/indications/g8.jpg
+G9,Turun Berat Badan,berat badan turun drastis kurang lebih 10kg dalam 2 minggu,/images/indications/g9.jpg
+G10,Kejang,sering sekali mengalami kejang,/images/indications/g10.jpg
+G11,Gangguan Penglihatan,tiba-tiba mata menjadi perih dan sakit waktu melihat,/images/indications/g11.jpg
+G12,Mual dan Muntah,mengalam rasa mual dan muntah kurang lebih 2 minggu,/images/indications/g12.jpg
+G13,Lemah dan Lelah,merasa sangat lemah dan cepat lelah meskipun telah cukup istirahat,/images/indications/g13.jpg
+G14,Menurun Nafsu Makan,mengalami penurunan nafsu makan,/images/indications/g14.jpg
+G15,Hematuria,mengalami air kemih yang mengandung darah,/images/indications/g15.jpg
+G16,Arthritis,"mengalami sakit, nyeri, dan bengkak pada persendian selama lebih dari 3 bulan",/images/indications/g16.jpg
+G17,Ruam kulit diperburuk sinar matahari,mengalami ruam pada kulit yang diperburuk oleh sinar matahari,/images/indications/g17.jpg
+G18,Bagian tubuh terdapat bercak merah cakram & sisik,dibagian tubuh terdapat bercak-bercak merah berbentuk cakram dan terkadang bersisik,/images/indications/g18.jpg
+G19,Butterfly Rush,adanya ruam kemerahan berbentuk kupu-kupu bersayap meliputi kedua pipi,/images/indications/g19.jpg
+G20,Discoid Rash,adanya ruam rash pada wajah yang berbentuk bulat pada pipi,/images/indications/20.jpg

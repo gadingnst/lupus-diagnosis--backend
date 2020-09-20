@@ -4,6 +4,7 @@ export interface IndicationFields {
     kode_gejala?: string
     gejala: string
     des_gejala: string
+    gambar_gejala: string
 }
 
 export default class Indication extends Model<IndicationFields> {
