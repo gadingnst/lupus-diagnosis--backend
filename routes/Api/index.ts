@@ -5,7 +5,6 @@ import CaseRoute from './Case'
 import AdminRoute from './Admin'
 import VisitorRoute from './Visitor'
 import FeedbackRoute from './Feedback'
-import HistoryRoute from './History'
 
 class ApiRoute extends Router {
     public routes() {
@@ -15,7 +14,6 @@ class ApiRoute extends Router {
         this.router.use('/admins', AdminRoute)
         this.router.use('/visitors', VisitorRoute)
         this.router.use('/feedbacks', FeedbackRoute)
-        this.router.use('/histories', HistoryRoute)
     }
 }
 
