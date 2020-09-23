@@ -1,1 +1,60 @@
-[]
+[
+  {
+    "id": 1,
+    "visitor": {
+      "umur": 21,
+      "jenis_kelamin": "L",
+      "pekerjaan": "Programmer"
+    },
+    "indications": [
+      "G1",
+      "G5",
+      "G7",
+      "G9"
+    ],
+    "result": {
+      "prediction": {
+        "kode_penyakit": "P3",
+        "nama_penyakit": "Lupus Obat / Drug-Induced Lupus Erythematosus (DILE)",
+        "des_penyakit": "Lupus akibat obat-obatan, jenis ini biasanya hanya dialami dalam waktu yang singkat saja. Jadi beberapa obat-obatan mungkin saja menimbulkan efek samping yang gejalanya mirip lupus. Kondisi pasien akan membaik kalau penggunaan obat dihentikan.",
+        "gambar_penyakit": "/images/diseases/p3.png",
+        "posterior": 0.0000014096655929142994,
+        "percentage": 47.06
+      },
+      "classification": [
+        {
+          "kode_penyakit": "P1",
+          "nama_penyakit": "Lupus Sistemik / Systemic Lupus Erythematosus (SLE)",
+          "des_penyakit": "Lupus sistemik merupakan jenis lupus yang paling sering terjadi. Jenis penyakit ini menyerang berbagai jaringan seperti, sendi, kulit, otak, paru-paru,ginjal dan pembuluh darah.",
+          "gambar_penyakit": "/images/diseases/p1.png",
+          "posterior": 1.7620819911428742e-7,
+          "percentage": 5.88
+        },
+        {
+          "kode_penyakit": "P2",
+          "nama_penyakit": "Lupus Discoid / Cutaneous Lupus Erythematosus (CLE)",
+          "des_penyakit": "Lupus discoid merupakan jenis lupus yang menyerang jaringan kulit, sehingga menyebabkan ruam-ruam pada kulit.",
+          "gambar_penyakit": "/images/diseases/p2.png",
+          "posterior": 0.0000014096655929142994,
+          "percentage": 47.06
+        },
+        {
+          "kode_penyakit": "P3",
+          "nama_penyakit": "Lupus Obat / Drug-Induced Lupus Erythematosus (DILE)",
+          "des_penyakit": "Lupus akibat obat-obatan, jenis ini biasanya hanya dialami dalam waktu yang singkat saja. Jadi beberapa obat-obatan mungkin saja menimbulkan efek samping yang gejalanya mirip lupus. Kondisi pasien akan membaik kalau penggunaan obat dihentikan.",
+          "gambar_penyakit": "/images/diseases/p3.png",
+          "posterior": 0.0000014096655929142994,
+          "percentage": 47.06
+        },
+        {
+          "kode_penyakit": "P4",
+          "nama_penyakit": "Tidak Ada Penyakit",
+          "des_penyakit": "Tidak ada Penyakit",
+          "gambar_penyakit": "/images/diseases/p4.png",
+          "posterior": 0,
+          "percentage": 0
+        }
+      ]
+    }
+  }
+]
