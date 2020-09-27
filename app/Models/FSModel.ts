@@ -34,7 +34,7 @@ export default abstract class Model<T> {
                 .catch(err => callback(err, [])),
             'json': (data: T[]) => {
                 const newData: T[] = [...data]
-                FileSystem.writeFile(this.dataset, JSON.stringify(newData), 'utf-8', err => {
+                FileSystem.writeFile(this.dataset, JSON.stringify(newData, null, 2), 'utf-8', err => {
                     if (err) callback(err, [])
                     else callback(null, data)
                 })
@@ -62,7 +62,7 @@ export default abstract class Model<T> {
             },
             'json': (data: T, all: T[]) => {
                 const newData: T[] = [...all, data]
-                FileSystem.writeFile(this.dataset, JSON.stringify(newData), 'utf-8', err => {
+                FileSystem.writeFile(this.dataset, JSON.stringify(newData, null, 2), 'utf-8', err => {
                     if (err) callback(err, null)
                     else callback(null, data)
                 })
@@ -114,7 +114,7 @@ export default abstract class Model<T> {
         const allData = await this.all()
         const duplicateKey = this.checkUniqueKeys(row, allData)
         if (duplicateKey) throw new HttpError(400, 'Bad Request', `Data duplikat, ${duplicateKey} sudah digunakan`)
-        const keys = allData.map(item => +((item as any)[this.primaryKey] as string).replace(/[^0-9]/g, ''))
+        const keys = allData.map(item => +`${(item as any)[this.primaryKey]}`.replace(/[^0-9]/g, ''))
         const incrementPk = Math.max(...keys) + 1
         const pk = isFinite(incrementPk) ? incrementPk : 1
         const newPk = this.prefixKey.length ? `${this.prefixKey}${pk}` : pk
