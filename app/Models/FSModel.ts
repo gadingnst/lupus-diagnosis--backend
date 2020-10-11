@@ -26,6 +26,9 @@ export default abstract class Model<T> {
         return {
             'csv': (data: T[]) => json2csvAsync(data as any[])
                 .then(result => {
+                    if (data.length < 1) {
+                        result = Object.keys(this.data || {}).join(',')
+                    }
                     FileSystem.writeFile(this.dataset, result + '\n', 'utf-8', err => {
                         if (err) throw err
                         else callback(null, data)

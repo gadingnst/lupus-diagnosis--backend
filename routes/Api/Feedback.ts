@@ -9,6 +9,7 @@ class FeedbackRoute extends Router<typeof FeedbackController> {
   public routes() {
     this.router.get('/', this.bindHandler(FeedbackController.index))
     this.router.post('/', this.bindHandler(FeedbackController.add))
+    this.router.delete('/:id', this.bindHandler(FeedbackController.delete))
   }
 }
 

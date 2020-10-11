@@ -13,7 +13,7 @@ class CaseController extends Controller {
         this.history = new History()
     }
 
-    public async indexHistory(req: Request, res: Response): Promise<void> {
+    public async historyIndex(req: Request, res: Response): Promise<void> {
         try {
           const data = await this.history.all()
           this.send(res, {
@@ -22,6 +22,22 @@ class CaseController extends Controller {
             message: `Sukses mengambil ${data.length} data riwayat prediksi.`,
             data
           })
+        } catch (err) {
+          this.handleError(req, res, err)
+        }
+    }
+
+    public async historyDelete(req: Request, res: Response): Promise<void> {
+        const { id } = req.params
+        try {
+            const data = await this.history.findByPk(id)
+            await data.delete()
+            this.send(res, {
+                code: 200,
+                status: 'OK!',
+                message: 'Sukses menghapus data riwayat kasus.',
+                data
+            })
         } catch (err) {
           this.handleError(req, res, err)
         }

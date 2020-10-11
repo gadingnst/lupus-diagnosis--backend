@@ -39,6 +39,22 @@ class FeedbackController extends Controller {
       this.handleError(req, res, err)
     }
   }
+
+  public async delete(req: Request, res: Response): Promise<void> {
+    const { id } = req.params
+    try {
+      const data = await this.model.findByPk(id)
+      await data.delete()
+      this.send(res, {
+        code: 200,
+        status: 'Created.',
+        message: 'Sukses menghapus feedback.',
+        data
+      })
+    } catch (err) {
+      this.handleError(req, res, err)
+    }
+  }
 }
 
 export default new FeedbackController()
